@@ -1,6 +1,7 @@
 import React from 'react';
 import { useArticlesStore } from '../libs/articleStore.js';
 import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export default function EventDetail() {
   const { id } = useParams(); // URLから取得
@@ -18,7 +19,10 @@ export default function EventDetail() {
         <div
         className="content py-4"
         dangerouslySetInnerHTML={{ __html: articleById.content }}
-        />
+      />
+        <div className='py-4'>
+             <Link to="/live" className='hover:opacity-50'>Back</Link>
+        </div>
     </div>
   );
 }
