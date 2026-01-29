@@ -9,5 +9,8 @@ export default defineConfig({
     proxy: {
       "/api": "http://localhost:3000",
     },
+    build: {
+      minify: false, // lightningcss を無効化
+    },
   },
 });
