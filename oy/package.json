@@ -32,6 +32,6 @@
     "vite": "^7.2.4"
   },
   "optionalDependencies": {
-    "@lightningcss/linux-x64-gnu": "npm:null@*"
+    "@lightningcss/linux-x64-gnu": "npm:null@^2.0.0"
   }
 }
