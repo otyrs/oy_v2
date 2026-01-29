@@ -1,23 +1,51 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useArticlesStore } from '../libs/articleStore.js';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { fetchArticleById } from '../libs/fetchArticle.js';
 
 export default function EventDetail() {
-  const { id } = useParams(); // URLから取得
+  const { id } = useParams();
   const articles = useArticlesStore((state) => state.articles);
+  const [article, setArticle] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  // idに一致する記事を検索
-  const articleById = articles.find(article => article.id === id);
+  useEffect(() => {
+    const loadArticle = async () => {
+      try {
+        // まずストアから探す
+        const articleFromStore = articles.find(a => a.id === id);
+        if (articleFromStore) {
+          setArticle(articleFromStore);
+          setLoading(false);
+        } else {
+          // ストアになければAPIから取得
+          const data = await fetchArticleById(id);
+          setArticle(data);
+          setLoading(false);
+        }
+      } catch (err) {
+        setError(err.message);
+        setLoading(false);
+      }
+    };
+    loadArticle();
+  }, [id, articles]);
+
+  if (loading) return <div className="text-center py-8">Loading...</div>;
+  if (error) return <div className="text-center py-8 text-red-500">Error: {error}</div>;
+  if (!article) return <div className="text-center py-8">Article not found</div>;
+
   return (
       <div className="max-w-xl mx-auto py-8">
         <div>
-            <h2 className="title text-2xl font-bold mb-2 text-center">{articleById.title}</h2>
-            <div className='text-right mb-4'>({(articleById.date).slice(0, 4)})</div>
+            <h2 className="title text-2xl font-bold mb-2 text-center">{article.title}</h2>
+            <div className='text-right mb-4'>({(article.date).slice(0, 4)})</div>
         </div>
         <div
         className="content py-4"
-        dangerouslySetInnerHTML={{ __html: articleById.content }}
+        dangerouslySetInnerHTML={{ __html: article.content }}
           />
         <div className='py-4'>
              <Link to="/event" className='hover:opacity-50'>Back</Link>
