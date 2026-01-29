@@ -1,17 +1,28 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
+import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), tailwindcss()],
   css: {
     transformer: "postcss",
     minify: "esbuild",
   },
-  // --- ここから追加 ---
-  preview: {
-    preview: {
-      allowedHosts: true,
+  server: {
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3000',
+        changeOrigin: true,
+      },
     },
   },
-  // --- ここまで ---
+  preview: {
+    allowedHosts: ["oy-v2.onrender.com"],
+    proxy: {
+      '/api': {
+        target: 'http://localhost:3000',
+        changeOrigin: true,
+      },
+    },
+  },
 });
