@@ -1,15 +1,15 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
-  plugins: [react(), tailwindcss()],
-  server: {
-    proxy: {
-      "/api": "http://localhost:3000",
-    },
+  plugins: [react()],
+  css: {
+    // これを追加：Lightning CSSを使わずに標準のPostCSS/esbuildを使う設定
+    transformer: "postcss",
+    minify: "esbuild",
   },
   build: {
-    minify: false, // これで lightningcss をスキップ
+    // CSSの圧縮にもLightning CSSを使わないように明示
+    cssMinify: "esbuild",
   },
 });
