@@ -9,7 +9,9 @@ export default defineConfig({
   },
   // --- ここから追加 ---
   preview: {
-    allowedHosts: ["oy-v2.onrender.com"], // 自分のURLを許可する
+    preview: {
+      allowedHosts: true,
+    },
   },
   // --- ここまで ---
 });
