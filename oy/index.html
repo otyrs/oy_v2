@@ -2,11 +2,39 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="/logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="/index.css" rel="stylesheet">
+    
+    <!-- SEO Meta Tags -->
+    <title>Ott Yarris - Art Project</title>
+    <meta name="description" content="Hokkaido-based art project." />
+    <meta name="keywords" content="art project, music, Hokkaido, artist, portfolio, Ott Yarris" />
+    <meta name="author" content="Ott Yarris" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Ott Yarris - Art Project" />
+    <meta property="og:description" content="Hokkaido-based art project." />
+    <meta property="og:image" content="/logo.png" />
+    <meta property="og:url" content="https://oy-v2-client.onrender.com" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Ott Yarris - Art Project" />
+    <meta name="twitter:description" content="Hokkaido-based art project." />
+    <meta name="twitter:image" content="/logo.png" />
 
-    <title>Ott Yarris</title>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZFK8ZSY9T1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-ZFK8ZSY9T1');
+    </script>
+        
+    <link href="/index.css" rel="stylesheet">
   </head>
   <body>
     <div id="root"></div>
