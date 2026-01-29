@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const path = require("path");
 require("dotenv").config();
 const { createClient } = require("microcms-js-sdk");
 
@@ -13,6 +14,9 @@ const client = createClient({
 
 app.use(cors());
 app.use(express.json());
+
+// 静的ファイルの提供
+app.use(express.static(path.join(__dirname, "../oy/dist")));
 
 /* 記事一覧 */
 app.get("/api/article", async (req, res) => {
@@ -35,6 +39,11 @@ app.get("/api/article/:id", async (req, res) => {
   } catch {
     res.status(404).json({ message: "Article not found" });
   }
+});
+
+// SPAのルーティングサポート - すべてのルートをindex.htmlにリダイレクト
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../oy/dist/index.html"));
 });
 
 app.listen(PORT, () => {

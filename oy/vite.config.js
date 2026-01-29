@@ -18,6 +18,7 @@ export default defineConfig({
   },
   preview: {
     allowedHosts: ["oy-v2.onrender.com"],
+    historyApiFallback: true,
     proxy: {
       '/api': {
         target: 'http://localhost:3000',
