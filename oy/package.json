@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "framer-motion": "^12.29.2",
+    "lightningcss": "^1.31.1",
     "microcms-richedit-processer": "^1.2.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
