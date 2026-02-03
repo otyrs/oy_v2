@@ -10,6 +10,8 @@ export default function Menu() {
     const location = useLocation(); // URL 監視
     const categories = useCategories();
     const fetchArticles = useArticlesStore((state) => state.fetchArticles);
+    const currentLanguage = useArticlesStore((state) => state.currentLanguage);
+    const langPrefix = currentLanguage === 'en' ? '/en' : '';
 
     useEffect(() => {
     fetchArticles();
@@ -44,7 +46,7 @@ export default function Menu() {
             {sortedCategories.map((category) => (
               <Link
                 key={category}
-                to={`/${category}`}
+                to={`${langPrefix}/${category}`}
                 className="block py-2 hover:opacity-70 text-right capitalize z-50"
               >
                 {category}

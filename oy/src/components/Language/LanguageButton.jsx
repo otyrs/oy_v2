@@ -1,23 +1,19 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useArticlesStore } from '../../libs/articleStore.js';
 
 export default function LanguageButton() {
-
-  const [lang, setLang] = React.useState(window.location.pathname.startsWith('/en') ? 'en' : 'jp');
-  
   const navigate = useNavigate();
+  const currentLanguage = useArticlesStore((state) => state.currentLanguage);
   
     const handleLanguageSwitch = () => {
         const currentPath = window.location.pathname;
         if (currentPath.startsWith('/en')) {
           const newPath = currentPath.replace('/en', '') || '/';
-            setLang('jp');
             navigate(newPath);
         } else {
             const newPath = '/en' + currentPath;
             navigate(newPath);
-            setLang(lang === 'en' ? 'jp' : 'en');
         }
     }
   return (
