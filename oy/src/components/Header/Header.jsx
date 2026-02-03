@@ -8,7 +8,7 @@ import LanguageButton from '../Language/LanguageButton.jsx';
 export default function Header() {
   
   return (
-      <div className="header grid grid-cols-[60px_1fr_60px] h-20 px-2 py-2 sticky top-0 z-10 items-center bg-white/90">
+      <div className="header grid grid-cols-[60px_1fr_60px] h-20 px-2 py-0 sticky top-0 z-10 items-center bg-white/100">
       <Routes>
                 <Route path="/" element={<div></div>} />
                 <Route path="/en" element={<div></div>} />
