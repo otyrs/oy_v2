@@ -19,9 +19,9 @@ export default function LanguageButton() {
   return (
     <div className='m-auto'>
       <button onClick={handleLanguageSwitch}>
-        <span className={`language-jp ${lang === 'jp' ? 'font-bold' : ''}`}>JP</span>
+        <span className={`language-jp ${currentLanguage === 'ja' ? 'font-bold' : ''}`}>JP</span>
         <span> / </span>
-        <span className={`language-en ${lang === 'en' ? 'font-bold' : ''}`}>EN</span>
+        <span className={`language-en ${currentLanguage === 'en' ? 'font-bold' : ''}`}>EN</span>
       </button>
     </div>
   )
