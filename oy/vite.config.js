@@ -9,21 +9,10 @@ export default defineConfig({
     minify: "esbuild",
   },
   server: {
-    proxy: {
-      "/api": {
-        target: "http://localhost:3000",
-        changeOrigin: true,
-      },
-    },
+    historyApiFallback: true,
   },
   preview: {
     allowedHosts: ["oy-v2.onrender.com"],
     historyApiFallback: true,
-    proxy: {
-      "/api": {
-        target: "http://localhost:3000",
-        changeOrigin: true,
-      },
-    },
   },
 });
