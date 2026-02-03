@@ -44,6 +44,7 @@ const MenuButton = ({
       width={width}
       height={height}
       {...props}
+      className="menu-button m-auto"
     >
       <motion.line
         x1="0"

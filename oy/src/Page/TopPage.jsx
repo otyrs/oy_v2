@@ -6,7 +6,7 @@ export default function TopPage() {
       <img
         src="./logo.png"
         alt="Logo"
-      className="w-50 h-50"/>
+      className="w-50 h-50 mb-12"/>
     </div>
   )
 }

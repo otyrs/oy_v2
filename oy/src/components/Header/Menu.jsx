@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
-import MenuButton from "./MenuButton";
+import MenuButton from "./MenuButton.jsx";
 import { useCategories } from "../../libs/categories.js";
 import { useArticlesStore } from "../../libs/articleStore.js";
 
@@ -23,7 +23,7 @@ export default function Menu() {
       const sortedCategories = [...categories].sort((a, b) => a.localeCompare(b));
 
   return (
-    <div className="menu relative flex justify-end px-4">
+    <div className="menu relative flex justify-end block">
       {/* メニューボタン */}
       <MenuButton
         isOpen={isOpen}
@@ -35,7 +35,7 @@ export default function Menu() {
       {isOpen && (
         <>
           <motion.div
-            className="menu-items absolute mt-12 w-40 z-50"
+            className="menu-items absolute mt-12 w-40 z-100 mr-4"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
@@ -54,7 +54,7 @@ export default function Menu() {
 
           {/* 背景クリックで閉じる */}
           <motion.div
-            className="fixed inset-0 w-screen h-screen z-40 backdrop-blur-sm"
+            className="fixed inset-0 w-screen h-screen z-40 bg-white/50 backdrop-blur-xl"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
