@@ -54,7 +54,7 @@ export default function Menu() {
 
           {/* 背景クリックで閉じる */}
           <motion.div
-            className="fixed inset-0 w-screen h-screen z-40 bg-white/50 backdrop-blur-xl"
+            className="fixed inset-0 w-screen h-screen z-40 bg-white/50 backdrop-blur-sm"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
