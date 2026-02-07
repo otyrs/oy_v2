@@ -15,7 +15,7 @@ export default function Header() {
       <Routes>
                 <Route path="/" element={<div></div>} />
                 <Route path="/en" element={<div></div>} />
-                <Route path="/*" element={ <Link to={homePath}><img className="logo w-14 h-14 m-0 p-0" src="/logo.png" alt="Logo" /></Link>} />
+                <Route path="/*" element={ <Link to={homePath}><img className="logo w-14 h-14 mb-4 p-0" src="/logo.png" alt="Logo" /></Link>} />
       </Routes>
           <LanguageButton />
           <Menu  />
