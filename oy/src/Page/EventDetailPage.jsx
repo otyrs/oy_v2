@@ -53,6 +53,28 @@ export default function EventDetail() {
         className="content py-4"
         dangerouslySetInnerHTML={{ __html: localizedArticle.content }}
           />
+      <div className="otherList my-64">
+        <ul>
+          {articles
+            .filter(a => {
+              if (!a.category) return false;
+              const cats = Array.isArray(a.category) ? a.category : [a.category];
+              return cats.includes("Event") && a.id !== article.id;
+            })
+            .map(a => {
+              const localizedA = getLocalizedArticle(a, currentLanguage);
+              const eventLink = currentLanguage === 'en' ? `/en/event/${a.id}` : `/event/${a.id}`;
+              return (
+                <li key={a.id} className="mb-2 text-center">
+                  <Link to={eventLink} className="opacity-50 hover:opacity-70">
+                    {localizedA.title} ({a.date.slice(0, 4)})
+                  </Link>
+                </li>
+              );
+            })}
+        </ul>
+      </div>
+      
         <div className='py-4'>
              <Link to={backPath} className='hover:opacity-50'>Back</Link>
         </div>

@@ -14,9 +14,16 @@ export default function AboutPage() {
   
     const currentLanguage = useArticlesStore((state) => state.currentLanguage);
   
-    const displayContent = currentLanguage === 'en' 
-        ? aboutArticles[0]?.content_en 
-        : aboutArticles[0]?.content;
+    // 日本語版はそのまま、英語版は画像+英語テキスト
+    let displayContent;
+    if (currentLanguage === 'en') {
+        // 画像部分を抽出（日本語版から）
+        const imageMatch = aboutArticles[0]?.content?.match(/<figure>.*?<\/figure>/s);
+        const imageSection = imageMatch ? imageMatch[0] : '';
+        displayContent = imageSection + (aboutArticles[0]?.content_en || '');
+    } else {
+        displayContent = aboutArticles[0]?.content || '';
+    }
 
     return (
       

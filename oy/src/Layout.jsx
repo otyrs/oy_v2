@@ -9,6 +9,7 @@ import AboutPage from './Page/AboutPage.jsx';
 import LivePage from './Page/LivePage.jsx';
 import LiveDetail from './Page/LiveDetailPage.jsx';
 import { useArticlesStore } from './libs/articleStore.js';
+import ScrollToTop from './libs/ScrollToTop.jsx';
 
 export default function Layout() {
   // 1. React Router のフックで現在のパスを取得
@@ -37,6 +38,7 @@ export default function Layout() {
     <div className="layout grid grid-rows-[auto_1fr_auto] min-h-screen">
       <Header />
       <main className="content p-4 max-w-3xl w-full mx-auto">
+        <ScrollToTop /> 
         <Routes>
           {/* 日本語ルート */}
           <Route path="/">

@@ -7,7 +7,7 @@ const MenuButton = ({
   height = 24,
   strokeWidth = 1,
   color = "#000",
-  transition = { duration: 0.6, ease: "easeInOut" },
+  transition = { duration: 0.6, ease: [0.6, 0.01, 0.05, 0.9] },
   lineProps = {},
   ...props
 }) => {
@@ -18,7 +18,7 @@ const MenuButton = ({
   };
   const center = {
     closed: { opacity: 1 },
-    opened: { opacity: 0 }
+    opened: { opacity: 0, transition: { duration: 0.3, ease: "easeOut" } }
   };
   const bottom = {
     closed: { rotate: 0, translateY: 0 },
