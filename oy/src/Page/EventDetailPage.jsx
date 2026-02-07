@@ -50,9 +50,9 @@ export default function EventDetail() {
             <div className='text-right mb-4'>({(article.date).slice(0, 4)})</div>
         </div>
         <div
-        className="content py-4"
-        dangerouslySetInnerHTML={{ __html: localizedArticle.content }}
-          />
+          className="content py-4 mx-auto"
+          dangerouslySetInnerHTML={{ __html: localizedArticle.content }}
+        />
       <div className="otherList my-64">
         <ul>
           {articles

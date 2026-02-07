@@ -4,5 +4,7 @@ export default {
   theme: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    require("@tailwindcss/typography"), // ← これが必須！
+  ],
 };
