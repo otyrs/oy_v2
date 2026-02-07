@@ -25,6 +25,13 @@ export default function LivePage() {
           </Link>
         </div>
       ))}
+      <div className="otherList my-64">
+        <ul>
+          {liveArticles.length === 0 && (
+            <li className="text-center py-8">No live articles available</li>
+          )}
+        </ul>
+       </div>
     </div>
   );
 }
