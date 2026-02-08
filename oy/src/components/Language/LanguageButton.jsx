@@ -17,11 +17,11 @@ export default function LanguageButton() {
         }
     }
   return (
-    <div className='m-auto'>
+    <div className='language-button cursor-pointer select-none' >
       <button onClick={handleLanguageSwitch}>
-        <span className={`language-jp ${currentLanguage === 'ja' ? 'font-bold' : ''}`}>JP</span>
+        <span className={`language-jp ${currentLanguage === 'ja' ? 'opacity-100' : 'opacity-30'}`}>JP</span>
         <span> / </span>
-        <span className={`language-en ${currentLanguage === 'en' ? 'font-bold' : ''}`}>EN</span>
+        <span className={`language-en ${currentLanguage === 'en' ? 'opacity-100' : 'opacity-30 '}`}>EN</span>
       </button>
     </div>
   )

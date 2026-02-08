@@ -4,6 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 import MenuButton from "./MenuButton.jsx";
 import { useCategories } from "../../libs/categories.js";
 import { useArticlesStore } from "../../libs/articleStore.js";
+import LanguageButton from "../Language/LanguageButton.jsx";
 
 export default function Menu() {
   const [isOpen, setOpen] = useState(false);
@@ -52,6 +53,9 @@ export default function Menu() {
                 {category}
               </Link>
             ))}
+            <div className="block py-4 hover:opacity-70 text-right capitalize z-50">
+              <LanguageButton/>
+            </div>
           </motion.div>
 
           {/* 背景クリックで閉じる */}
