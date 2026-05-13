@@ -44,16 +44,16 @@ export default function EventDetail() {
   const backPath = currentLanguage === 'en' ? '/en/event' : '/event';
 
   return (
-      <div className="max-w-xl mx-auto py-8">
+      <div className="max-w-xl mx-auto py-4">
         <div>
-            <h2 className="title text-2xl font-bold mb-2 text-center">{localizedArticle.title}</h2>
+            <h2 className="title text-xl font-bold mb-1 text-center">{localizedArticle.title}</h2>
             <div className='text-right mb-4'>({(article.date).slice(0, 4)})</div>
         </div>
         <div
-          className="content py-4 mx-auto"
+          className="article-content py-4 mx-auto"
           dangerouslySetInnerHTML={{ __html: localizedArticle.content }}
         />
-      <div className="otherList my-64">
+      <div className="otherList my-4">
         <ul>
           {articles
             .filter(a => {
@@ -65,7 +65,7 @@ export default function EventDetail() {
               const localizedA = getLocalizedArticle(a, currentLanguage);
               const eventLink = currentLanguage === 'en' ? `/en/event/${a.id}` : `/event/${a.id}`;
               return (
-                <li key={a.id} className="mb-2 text-center">
+                <li key={a.id} className="mb-2">
                   <Link to={eventLink} className="opacity-50 hover:opacity-70">
                     {localizedA.title} ({a.date.slice(0, 4)})
                   </Link>

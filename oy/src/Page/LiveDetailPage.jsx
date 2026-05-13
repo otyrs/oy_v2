@@ -43,13 +43,13 @@ export default function LiveDetail() {
   const backPath = currentLanguage === 'en' ? '/en/live' : '/live';
   
   return (
-      <div className="max-w-xl mx-auto py-8">
+      <div className="max-w-xl mx-auto py-4">
         <div>
-            <h2 className="title text-2xl font-bold mb-2 text-center">{localizedArticle.title}</h2>
+            <h2 className="title text-xl font-bold mb-1 text-center">{localizedArticle.title}</h2>
             <div className='text-right mb-4'>({(article.date).slice(0, 4)})</div>
-        </div>
-        <div
-        className="content py-4"
+      </div>
+      <div
+        className="article-content py-4"
         dangerouslySetInnerHTML={{ __html: localizedArticle.content }}
       />
         <div className='py-4'>
